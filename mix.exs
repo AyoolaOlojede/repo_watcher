@@ -19,7 +19,7 @@ defmodule RepoWatcher.MixProject do
   def application do
     [
       mod: {RepoWatcher.Application, []},
-      extra_applications: [:logger, :runtime_tools, :neuron]
+      extra_applications: [:logger, :runtime_tools, :httpoison, :poison]
     ]
   end
 
@@ -39,7 +39,9 @@ defmodule RepoWatcher.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.1"},
       {:plug_cowboy, "~> 2.0"},
-      {:neuron, "~> 3.0.1"}
+      {:neuron, "~> 3.0.1"},
+      {:httpoison, "~> 1.6"},
+      {:poison, "~> 3.1"}
     ]
   end
 end
