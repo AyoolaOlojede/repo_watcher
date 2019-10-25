@@ -19,7 +19,7 @@ defmodule RepoWatcher.MixProject do
   def application do
     [
       mod: {RepoWatcher.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :neuron]
     ]
   end
 
