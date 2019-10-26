@@ -1,7 +1,12 @@
 <section>
   <h1>GitHub Repositories User is Watching</h1>
-  <p><input type="text" name="username" id="username" placeholder="Please enter your github name"/>
-  <span><button>Show</button></span></p>
+   <form method="post" action="<%= Routes.page_path(@conn, :show_details ) %>">
+   
+ <div class="input_wrapper center_block">
+  <label>Username</label>
+  <input type="text" name="username" id="username"  placeholder="Please enter your github name"/>
+  <button type="submit">Show</button>
+  </div>
   <table>
 <tr>
     <th>Name</th>
@@ -9,15 +14,18 @@
     <th>Status</th>
   </tr>
 <tbody></tbody>
-<%= for data <- @git_response do %>
-  <tr>
-    <td><%= data["node"]["name"]  %> </td>
-    <td><a href='<%= data["node"]["url"]  %>'><%= data["node"]["url"]  %></a></td>
-    <td>Watching</td>
-  </tr>
+<%= if @git_response do %>
+    <%= for data <- @git_response do %>
+     <tr>
+        <td><%= data["node"]["name"]  %> </td>
+        <td><a href='<%= data["node"]["url"]  %>'><%= data["node"]["url"]  %></a></td>
+        <td>Watching</td>
+     </tr>
 
+  <% end %>
 <% end %>
 </table>
+</form>
 </section>
 
 

@@ -14,6 +14,7 @@ config :repo_watcher, RepoWatcherWeb.Endpoint,
   render_errors: [view: RepoWatcherWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: RepoWatcher.PubSub, adapter: Phoenix.PubSub.PG2]
 
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
@@ -22,10 +23,10 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-# Tokens
-config :tokens,
-github_personal_access_token: "9c1e2ac4cff3d04e1d4af11456ef4fa6d1b6a53a"
-
+# Git Client Params
+config :git_client,
+github_personal_access_token: "a9f8ea924388df20d055cdb79ef9d24f8d0b4f2b",
+git_url: "https://api.github.com/graphql"
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
